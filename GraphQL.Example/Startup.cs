@@ -28,6 +28,7 @@ namespace GraphQL.Example
             services.AddSingleton<IMessageRepository, MessageRepository>();
             services.AddSingleton<IDataDecorator, StaticDataSource>();
             services.AddGraphQL(o => { o.ExposeExceptions = true; }).AddGraphTypes(ServiceLifetime.Scoped)
+                .AddUserContextBuilder(httpContext => httpContext.User)
                 .AddDataLoader();
         }
 

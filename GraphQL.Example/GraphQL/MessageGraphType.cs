@@ -1,4 +1,5 @@
-﻿using GraphQL.Example.Models;
+﻿using System.Security.Claims;
+using GraphQL.Example.Models;
 using GraphQL.Example.Services;
 using GraphQL.Types;
 
@@ -16,6 +17,8 @@ namespace GraphQL.Example.GraphQL
                 arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>> {Name = "Id"}),
                 resolve: context =>
                 {
+                    var user = (ClaimsPrincipal) context.UserContext;
+                    // TODO: Add authorization code.
                     var id = context.GetArgument<int>("id");
                     return messageRepository.Get(id);
                 });

@@ -7,7 +7,7 @@ namespace GraphQL.Example.GraphQL
     {
         public MessageQuery(IMessageRepository messageRepository)
         {
-            Field<ListGraphType<MessageGraphType>>("products", resolve: context => messageRepository.GetAll());
+            Field<ListGraphType<MessageGraphType>>("messages", resolve: context => messageRepository.GetAll());
         }
     }
 }

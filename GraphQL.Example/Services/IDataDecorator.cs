@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using GraphQL.Example.Models;
 
@@ -8,5 +9,6 @@ namespace GraphQL.Example.Services
     {
         Task<List<Message>> GetAll();
         Task<List<Message>> Get(int messageId);
+        Task<Message> Add(Message message);
     }
 }

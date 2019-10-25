@@ -7,6 +7,7 @@ namespace GraphQL.Example.GraphQL
         public MessageSchema(IDependencyResolver resolver) : base(resolver)
         {
             Query = resolver.Resolve<MessageQuery>();
+            Mutation = resolver.Resolve<MessageMutation>();
         }
     }
 }

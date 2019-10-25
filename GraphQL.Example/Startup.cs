@@ -1,4 +1,5 @@
 ﻿using GraphQL.Example.GraphQL;
+using GraphQL.Example.Models;
 using GraphQL.Example.Services;
 using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;

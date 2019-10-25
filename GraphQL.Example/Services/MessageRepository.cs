@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+
 using System.Threading.Tasks;
 using GraphQL.Example.Models;
 
@@ -23,6 +24,12 @@ namespace GraphQL.Example.Services
         {
             var messages = await dataDecorator.Get(messageId);
             return messages;
+        }
+
+        public async Task<Message> Add(MessageInput messageInput)
+        {
+            var newMessage = await dataDecorator.Add(new Message(messageInput));
+            return newMessage;
         }
     }
 }

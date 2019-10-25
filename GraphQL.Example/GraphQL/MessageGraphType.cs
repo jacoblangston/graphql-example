@@ -10,6 +10,12 @@ namespace GraphQL.Example.GraphQL
         public MessageGraphType(IMessageRepository messageRepository)
         {
             Field(t => t.Id);
+            Field<IntGraphType>("parentId",
+                resolve: context =>
+            {
+                var parentId = context.GetArgument<int?>("parentId");
+                return parentId;
+            });
             Field(t => t.Name);
             Field(t => t.Content);
             Field<ListGraphType<MessageGraphType>>(
